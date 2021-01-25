@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event bubble & capturing</title>
+</head>
+
+<body>
+    <div id="container">
+        <ul id="ul">
+            <li class="list">
+                asif
+            </li>
+            <li class="list">
+                sakib
+            </li>
+            <li class="list">
+                rakib
+            </li>
+        </ul>
+
+        <button id="addNew">Add New Item</button>
+    </div>
+
+
+
+    <script>
+        // var item = document.getElementsByClassName('list');
+        // for (let i = 0; i < item.length; i++) {
+        //     const element = item[i];
+        //     element.addEventListener('click', function (event) {
+        //         //console.log(this, event.target.innerHTML,);
+        //         //console.log(event.target.parentNode);
+        //         event.target.parentNode.removeChild(event.target);
+        //     })
+        // }
+        document.getElementById('addNew').addEventListener('click', function (event) {
+            var addNew = document.getElementById('ul');
+            var newList = document.createElement('li');
+            newList.innerHTML = "Brand new Item";
+            addNew.appendChild(newList);
+        })
+
+        document.getElementById('ul').addEventListener('click',function(event) {
+            // console.log(event.target);
+            event.target.parentNode.removeChild(event.target);
+        })
+    </script>
+</body>
+
+</html>

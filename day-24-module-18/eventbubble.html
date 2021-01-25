@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event bubble & capturing</title>
+</head>
+<body>
+    <div id="container">
+        <ul id="ul">
+            <li id="list-1">
+                <p>Lorem ipsum dolor sit amet.</p>
+            </li>
+            <li class="list-2">
+                <p>Lorem ipsum dolor sit amet.</p>
+            </li>
+            <li class="list-3">
+                <p>Lorem ipsum dolor sit amet.</p>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        document.getElementById('container').addEventListener('click',function() {
+            console.log('container clicked');
+            
+        });
+
+        document.getElementById('ul').addEventListener('click',function() {
+            console.log('ul clicked');
+        });
+
+        document.getElementById('list-1').addEventListener('click',function() {
+            console.log('list clicked');
+            event.stopPropagation();
+        });
+    </script>
+</body>
+</html>
